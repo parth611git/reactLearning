@@ -1,35 +1,44 @@
 import React from 'react';
 
 class App extends React.Component{
-       constructor(props)
+    constructor(props)
    {
        super(props);
-       this.state = {counter :1};
+       this.state = {counter :0};
       this.handleClick = this.handleClick.bind(this);
    }
-   handleClick() {
-       this.setState({counter : this.state.counter+1});       
+   handleClick(increment) {   
+       this.setState({counter : this.state.counter+increment});       
    }
     render()
     {
         return(
             <div>
-                <Button locaHandleClick = {this.handleClick}/>
-                <Result localCounter = {this.state.counter}/>
+                <Button localHandleClick = {this.handleClick} increment={1}/>
+                <Button localHandleClick = {this.handleClick} increment={5}/>
+                <Button localHandleClick = {this.handleClick} increment={10}/>
+                <Button localHandleClick = {this.handleClick} increment={100}/>
+                <Result localCounter = {this.state.counter} />
                 </div>
         );
     }
 }
 class Button extends React.Component {
-    render() {
-      return (
-         <div>
-            Hello World...!!!
-            <button onClick={this.props.locaHandleClick}>+1</button>
-            
-         </div>		 
-      );
+ constructor(props)
+   {      
+       super(props);
+      this.localHandleClick = this.localHandleClick.bind(this);
    }
+
+    localHandleClick()
+    {
+        this.props.localHandleClick(this.props.increment);
+    }
+    render() {
+      return (                          
+            <button onClick={this.localHandleClick}>+{this.props.increment}</button>                     
+      );
+    }
 }
 
 class Result extends React.Component
