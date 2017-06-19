@@ -15,7 +15,7 @@ class Card extends React.Component
   componentDidMount()
   {
       var component = this;
-      $.get("https://api.github.com/users/parth611git",function(data){
+      $.get("https://api.github.com/users/"+this.props.name,function(data){
         component.setState(data);
       });
   }
