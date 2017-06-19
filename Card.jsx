@@ -31,4 +31,17 @@ class Card extends React.Component
     }
 }
 
-export default Card;
+class CardList extends React.Component
+{
+   render()
+   {
+       return(
+           <div>
+               <Card name="parth611git" />
+               <Card name="ketulpatel215" />
+               </div>
+       );
+   }
+
+}
+export default CardList;
