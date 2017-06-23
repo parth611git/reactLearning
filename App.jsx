@@ -19,6 +19,7 @@ class App extends React.Component{
                 <Button localHandleClick = {this.handleClick} increment={10}/>
                 <Button localHandleClick = {this.handleClick} increment={100}/>
                 <Result localCounter = {this.state.counter} />
+                <hr/>
                 </div>
         );
     }
